@@ -81,8 +81,8 @@ The API provides the following endpoints:
 | `DELETE` | `/:id`              | { message:"Beer successfully Deleted!"} | delete a beer               |
 
 
-| <b>BONUS</b> `GET`  | `/random`           | { beer }                                               | Get a random beer from the DB                                |
-|  <b>BONUS</b> `GET`  | `/search?q={query}` | [beers]                                                | Search beers by name containing the specified term. Example: `/search?q=lager` query will return all beers with the word lager in their name. |
+| BONUS: `GET`  | `/random`           | { beer }                                               | Get a random beer from the DB                                |
+| BONUS `GET`  | `/search?q={query}` | [beers]                                                | Search beers by name containing the specified term. Example: `/search?q=lager` query will return all beers with the word lager in their name. |
 
 <br>
 
