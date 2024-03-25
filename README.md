@@ -227,7 +227,7 @@ What we did in the commands here is:
 
 
 
-### Iteration 7 | Create the base component pages
+### Iteration 10 | Create the base component pages
 
 Create two folders in our src folder:
 
@@ -251,7 +251,7 @@ Create the following components in the pages folder:
 
 <br>
 
-### Bonus: Iteration 10 | Create the routing for the React Application
+### Iteration 11 | Create the routing for the React Application
 
 1. Set up React Router in your `src/main.jsx` file:
 
@@ -283,7 +283,7 @@ root.render(
 
 
 
-### Iteration 2 | Home Page
+### Iteration 12 | Home Page
 
 Implement the `HomePage` component located in the `src/pages/HomePage.jsx` so that it includes links to the following pages:
 
@@ -318,7 +318,7 @@ Feel free to style the page in any way that you prefer. If you want to follow th
 
 <br>
 
-### Iteration 3 | Navbar
+### Iteration 13 | Navbar
 
 In this iteration, you will work on the `Navbar` component located in `src/components/Navbar.jsx`.
 
@@ -350,6 +350,257 @@ The `Navbar` component should be rendered on every page.
 <br>
 
 
+### Iteration 14 | List all the beers
+
+Next, we'll work on the `AllBeersPage` component in the `src/pages/AllBeersPage.jsx`.
+
+The `AllBeersPage` that gets rendered on the route `/beers`, should display a list of all the beers from the API. 
+
+
+
+To do this, you need to make a `GET` request to the Beers API endpoint `https://ih-beers-api2.herokuapp.com/beers`. This API endpoint returns an **array of beers**. 
+
+**Hint**: The array of beers is an *array* of *objects*. You should **`console.log`** the response data to help you visualize the structure of the beer objects and how the data is structured.
+
+
+
+The list should display the following info for each beer:
+
+- `image`
+
+- `name`
+
+- `tagline`
+
+- `contributed_by`
+- **Each beer in the list should include a `Link`** to the beer details page **`/beers/:beerId`** , where `:beerId` is the unique identifier for the beer. 
+
+
+
+<br>
+
+
+
+<details>
+
+
+  <summary><b>See Expected Result</b></summary>
+
+
+
+<div style="display: flex; justify-content: center">
+  <img src="https://user-images.githubusercontent.com/23629340/40706960-96223ade-63ef-11e8-9375-b7b6d091e716.png" height="600px" />
+</div>
+
+
+
+  <br>
+
+</details>
+
+
+
+<br>
+
+
+### Iteration 15 | Display a single beer
+
+In this iteration, you will work on the `BeerDetailsPage` component in the `src/pages/BeerDetailsPage.jsx`.
+
+When a user clicks on one of the beers in the list on the `AllBeersPage`, they should be navigated to the *Beer Details page* (`BeerDetailsPage`) where details of that specific beer should be shown.
+
+<br>
+
+#### 15.1 | Access URL Parameter
+
+To access URL parameter `beerId` from the browser's URL bar, use the React Router hook `useParams`.
+
+Check [this example](https://reactrouter.com/en/6.10.0/hooks/use-params) if you need a reminder of how to set up the useParams hook and access the URL parameters.
+
+<br>
+
+
+
+#### 15.2 | Make a request to the API
+
+To get the beer details, you need to make a `GET` request to the Beers API endpoint `https://ih-beers-api2.herokuapp.com/beers/:id`, where `:id` should be replaced with the id of the selected beer. 
+
+**Example:** [https://ih-beers-api2.herokuapp.com/beers/**5fb6a86265b9c209606e10e2**](https://ih-beers-api2.herokuapp.com/beers/5fb6a86265b9c209606e10e2)
+
+Remember to **`console.log`** the response data to help you visualize the structure of the beer object and how the data is structured.
+
+<br>
+
+
+
+#### 15.3 | Display Beer Details
+
+The `BeerDetailsPage` component should display the following information about the selected beer:
+
+- `image`
+- `name`
+- `tagline`
+- `first_brewed`
+- `attenuation_level`
+- `description`
+- `contributed_by`
+
+<br>
+
+
+
+<details>
+
+
+  <summary><b>See Expected Result</b></summary>
+
+
+
+<div style="display: flex; justify-content: center">
+  <img src="https://user-images.githubusercontent.com/23629340/40707269-84bedd78-63f0-11e8-86c3-b14efb9323a7.png" height="600px" />
+</div>
+
+
+
+  <br>
+
+</details>
+
+
+
+<br>
+
+
+
+### Iteration 16 | A random beer
+
+In this iteration, you will work on the `RandomBeerPage` component in the `src/pages/RandomBeerPage.jsx`.
+
+
+
+When the `RandomBeerPage` component is rendered on the `/random-beer` route, it should show a random beer retrieved from the Beers API. To get the data of a random beer, you need to make a `GET` request to the endpoint `https://ih-beers-api2.herokuapp.com/beers/random`.
+
+<br>
+
+The `RandomBeerPage` component should display the following information about the random (same as in the `BeerDetailsPage`):
+
+- `image`
+- `name`
+- `tagline`
+- `first_brewed`
+- `attenuation_level`
+- `description`
+- `contributed_by`
+
+
+
+<br>
+
+
+
+<details>
+
+
+  <summary><b>See Expected Result</b></summary>
+
+
+
+<div style="display: flex; justify-content: center">
+  <img src="https://user-images.githubusercontent.com/23629340/40707457-05a22990-63f1-11e8-84b2-a86143b7b821.png" height="600px" />
+</div>
+
+
+
+
+
+  <br>
+
+</details>
+
+
+
+<br>
+
+
+
+### Iteration 17 | Create a new beer
+
+In this iteration, you will work on the `AddBeerPage` component in the `src/pages/AddBeerPage.jsx`.
+
+
+
+When the user navigates to the `/new-beer` route in your react app, the `AddBeerPage` component should be rendered, displaying a `form` where the user can create new beers. 
+
+<br>
+
+
+The `form` should include the following:
+
+- `input`:
+  - Label: Name
+  - Attributes: `name="name"` and `type="text"`
+- `input`:
+  - Label: Tagline
+  - Attributes: `name="tagline"` and `type="text"`
+- `textarea`:
+  - Label: Description
+  - Attributes: `name="description"` and `type="text"`
+- `input`:
+  - Label: First Brewed
+  - Attributes: `name="first_brewed"` and `type="text"`
+- `input`:
+  - Label: Brewer's Tips
+  - Attributes: `name="brewers_tips"` and `type="text"`
+- `input`:
+  - Label: Attenuation Level
+  - Attributes: `name="attenuation_level"` and **`type="number"`**
+- `input`:
+  - Label: Contributed By
+  - Attributes: `name="contributed_by"` and `type="text"`
+- `button`:
+  - Text: "Add Beer"
+  - Attributes: `type="submit"`
+
+<br>
+
+**Note:** All inputs are of type `text` except `attenuation_level`, which is of type `number`. This is important because the API will only accept the request if all values have the correct data types.
+
+<br>
+
+Once you are done creating the form, make a `POST` request to the API endpoint `https://ih-beers-api2.herokuapp.com/beers/new`, passing all the input values in the request `body` as an object. The fields of the request `body` should have exact **names** so that the API can create a new beer.
+
+If everything goes well, you will receive a **200** response from the server. :beer:
+
+The `attenuation_level` value must be set to the correct data type of `number`.  If a `string` is sent instead, the API will respond with a **500** error status code.
+
+<br>
+
+
+
+<details>
+
+
+  <summary><b>See Expected Result</b></summary>
+
+
+
+<div style="display: flex; justify-content: center">
+  <img src="https://user-images.githubusercontent.com/23629340/40707877-3c9dad42-63f2-11e8-8c95-4881bbde64a2.png" height="600px" />
+</div>
+
+
+
+
+
+  <br>
+
+</details>
+
+
+
+
+
+<br>
 
 ## FAQs
 
