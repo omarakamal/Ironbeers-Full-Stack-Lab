@@ -33,17 +33,6 @@ React application that is making proper API calls to our server
 <img src="https://user-images.githubusercontent.com/23629340/45887951-2ca0bb80-bdbd-11e8-91a4-08b66d88a7c7.gif" />
 </div>
 
-## Setup
-
-- Fork this repo
-- Clone this repo
-
-```shell
-cd lab-react-ironbeers-vite
-npm install
-npm run dev
-```
-
 ## Submission
 
 - Upon completion, run the following commands:
@@ -115,7 +104,7 @@ The first step is creating the server side Node applicagtion
 
 
 
-1. in the root of this directory run the following command: npx ironlauncher ironbeer-backend.
+1. in the root of this directory run the following command: npx ironlauncher ironbeers-backend.
 2. pick the options for: JSON and no, thank you for authentication
 3. Check the package for json for the dependancies and run npm i
 
