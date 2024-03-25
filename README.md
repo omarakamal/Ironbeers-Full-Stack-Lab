@@ -201,7 +201,7 @@ This should finish our work on the server side for the moment. Now we have the f
 
 Now that we have finished the work on the server side application lets create the react (client) application that will send requests to the server side. Perform the following command in the root of this directory:
 
-1. npm create vite ironbeer-frontend
+1. npm create vite ironbeers-frontend
 2. cd ironbeer-frontend
 3. npm i axios react-router-dom
 
@@ -226,15 +226,17 @@ Create two folders in our src folder:
 Create the following components in the pages folder:
 
 
-- A **Home** page with links to 3 different pages:
+- A **HomePage.jsx** page with links to 3 different pages:
   - _All Beers_
   - _Random Beer_
   - _New Beer_
-- An **All Beers** page where you should display all the beers
-- A **Single Beer** page to display the details of the beer the user clicked on
-- A **Random Beer** page to display a Random Beer
-- A **New Beer** page to show a form where a user can create new beers
+- An **AllBeersPage.jsx** page where you should display all the beers
+- A **BeerDetailsPage.jsx** page to display the details of the beer the user clicked on
+- A **RandomBeer.jsx** page to display a Random Beer
+- A **AddNewBeer.jsx** page to show a form where a user can create new beers
 
+
+In the components folder create a **Navbar.jsx** component
 
 
 
@@ -283,7 +285,7 @@ Implement the `HomePage` component located in the `src/pages/HomePage.jsx` so th
 
 <br>
 
-Feel free to style the page in any way that you prefer. If you want to follow the below example, you can find the corresponding images in the `src/assets` folder.
+The pictures for each one of these links is located in the /assets folder in this repository. Feel free to style the page in any way that you prefer. If you want to follow the below example, you can find the corresponding images in the `src/assets` folder.
 
 <br>
 
