@@ -161,124 +161,56 @@ In this iteration we will write the route for getting all the beers.
 
 Now that we have done all these steps lets write the route for getting all the beers. This route should be a GET route and when a request is sent to this route a response cotaining all the beers needs to be sent back.
 
-<br>
-
-
-
-### Iteration 5 | Display a single beer
-
-In this iteration, you will work on the `BeerDetailsPage` component in the `src/pages/BeerDetailsPage.jsx`.
-
-When a user clicks on one of the beers in the list on the `AllBeersPage`, they should be navigated to the *Beer Details page* (`BeerDetailsPage`) where details of that specific beer should be shown.
-
-<br>
-
-#### 5.1 | Access URL Parameter
-
-To access URL parameter `beerId` from the browser's URL bar, use the React Router hook `useParams`.
-
-Check [this example](https://reactrouter.com/en/6.10.0/hooks/use-params) if you need a reminder of how to set up the useParams hook and access the URL parameters.
+**NOTE**: Test the route in postman to see if we get the desired response
 
 <br>
 
 
 
-#### 5.2 | Make a request to the API
+### Iteration 5 | Write the route for getting 1 beer /beers/:id 
 
-To get the beer details, you need to make a `GET` request to the Beers API endpoint `https://ih-beers-api2.herokuapp.com/beers/:id`, where `:id` should be replaced with the id of the selected beer. 
+Now lets write a route to get 1 beer. this route should recieve a GET Request and as a response get the beer that corresponds with the id given in the parameter. The response should be the 1 beer
 
-**Example:** [https://ih-beers-api2.herokuapp.com/beers/**5fb6a86265b9c209606e10e2**](https://ih-beers-api2.herokuapp.com/beers/5fb6a86265b9c209606e10e2)
-
-Remember to **`console.log`** the response data to help you visualize the structure of the beer object and how the data is structured.
+**NOTE**: Test the route in postman to see if we get the desired response
 
 <br>
 
+### Iteration 6 | Write the route for creating a new beer /beers
+Now lets write the route for creating a new beer. This route should get a request with the body containing the data for a new movie. **hint** use the chatbot AI and pass it the Schema and ask for data that matches the schema.
 
-
-#### 5.3 | Display Beer Details
-
-The `BeerDetailsPage` component should display the following information about the selected beer:
-
-- `image`
-- `name`
-- `tagline`
-- `first_brewed`
-- `attenuation_level`
-- `description`
-- `contributed_by`
-
-<br>
-
-
-
-<details>
-
-
-  <summary><b>See Expected Result</b></summary>
-
-
-
-<div style="display: flex; justify-content: center">
-  <img src="https://user-images.githubusercontent.com/23629340/40707269-84bedd78-63f0-11e8-86c3-b14efb9323a7.png" height="600px" />
-</div>
-
-
-
-  <br>
-
-</details>
-
+**NOTE**: Test the route in postman to see if we get the desired response
 
 
 <br>
 
 
 
-### Iteration 6 | A random beer
+### Iteration 7 | Write the route for updating a beer at /beers/:id
 
-In this iteration, you will work on the `RandomBeerPage` component in the `src/pages/RandomBeerPage.jsx`.
+Lets write the route for updating 1 beer. We need to send the id within the params and the updated data of the beer in the body of the request.
 
-
-
-When the `RandomBeerPage` component is rendered on the `/random-beer` route, it should show a random beer retrieved from the Beers API. To get the data of a random beer, you need to make a `GET` request to the endpoint `https://ih-beers-api2.herokuapp.com/beers/random`.
+**NOTE**: Test the route in postman to see if we get the desired response
 
 <br>
 
-The `RandomBeerPage` component should display the following information about the random (same as in the `BeerDetailsPage`):
 
-- `image`
-- `name`
-- `tagline`
-- `first_brewed`
-- `attenuation_level`
-- `description`
-- `contributed_by`
 
+### Iteration 8  | Write the route for deleting a beer /beers/:id
+
+Finally lets create the last CRUD route which is a DELETE route with the id being passed in the params.
+
+**NOTE**: Test the route in postman to see if we get the desired response
+
+This should finish our work on the server side for the moment. Now we have the full CRUD functionality on our server side
 
 
 <br>
 
 
 
-<details>
+### Iteration 9 | Create the react application
 
-
-  <summary><b>See Expected Result</b></summary>
-
-
-
-<div style="display: flex; justify-content: center">
-  <img src="https://user-images.githubusercontent.com/23629340/40707457-05a22990-63f1-11e8-84b2-a86143b7b821.png" height="600px" />
-</div>
-
-
-
-
-
-  <br>
-
-</details>
-
+Now that we have finished the work on the server side application lets create the react (client) application that will send requests to the server side. Perform the following command in the root of this directory to create the react application: npm create vite ironbeer-frontend
 
 
 <br>
