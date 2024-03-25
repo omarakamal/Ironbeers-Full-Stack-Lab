@@ -79,8 +79,6 @@ The API provides the following endpoints:
 | `POST` | `/new`              | { newBeer} | Create a new beer                |
 | `PUT` | `/:id`              | { updatedBeer } | Update the value of a beer               |
 | `DELETE` | `/:id`              | { message:"Beer successfully Deleted!"} | delete a beer               |
-
-
 | BONUS: `GET`  | `/random`           | { beer }                                               | Get a random beer from the DB                                |
 | BONUS `GET`  | `/search?q={query}` | [beers]                                                | Search beers by name containing the specified term. Example: `/search?q=lager` query will return all beers with the word lager in their name. |
 
