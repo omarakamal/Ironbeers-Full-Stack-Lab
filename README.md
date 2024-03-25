@@ -352,13 +352,20 @@ The `Navbar` component should be rendered on every page.
 
 ### Iteration 14 | List all the beers
 
+Before writing the code for this component do the following 2 things in the server side application:
+
+1. in the .env file change the ORIGIN from 3000 to 5173 ![image](https://github.com/omarakamal/Ironbeers-Full-Stack-Lab/assets/54825038/d09a89c3-4cb4-47c3-825a-a63d39268500)
+2. perform the following command in the terminal: npm run dev
+
+
+
 Next, we'll work on the `AllBeersPage` component in the `src/pages/AllBeersPage.jsx`.
 
 The `AllBeersPage` that gets rendered on the route `/beers`, should display a list of all the beers from the API. 
 
 
 
-To do this, you need to make a `GET` request to the Beers API endpoint `https://ih-beers-api2.herokuapp.com/beers`. This API endpoint returns an **array of beers**. 
+To do this, you need to make a `GET` request to the Beers API endpoint `https://localhost:5005/beers`. This API endpoint returns an **array of beers**. 
 
 **Hint**: The array of beers is an *array* of *objects*. You should **`console.log`** the response data to help you visualize the structure of the beer objects and how the data is structured.
 
