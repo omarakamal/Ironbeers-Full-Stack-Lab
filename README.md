@@ -66,7 +66,6 @@ npm run dev
 ### Beers API (backend)
 
 We will be building our own beers API with the following endpoints. The idea is that we are taking the beers API used in module two and actually creating it ourselves with our own endpoints.
-**`https://ih-beers-api2.herokuapp.com/beers`**
 
 
 
@@ -74,13 +73,13 @@ The API provides the following endpoints:
 
 | Method | Endpoint            | Response (200)                                         | Action                                                       |
 | ------ | ------------------- | ------------------------------------------------------ | ------------------------------------------------------------ |
-| `GET`  | `/`                 | [beers]                                                | Get all the beers from the DB                                |
-| `GET`  | `/:id`              | { beer }                                               | Get a single/specific beer                                   |
-| `POST` | `/new`              | { newBeer} | Create a new beer                |
-| `PUT` | `/:id`              | { updatedBeer } | Update the value of a beer               |
-| `DELETE` | `/:id`              | { message:"Beer successfully Deleted!"} | delete a beer               |
-| <b>BONUS:</b> `GET`  | `/random`           | { beer }                                               | Get a random beer from the DB                                |
-| BONUS `GET`  | `/search?q={query}` | [beers]                                                | Search beers by name containing the specified term. Example: `/search?q=lager` query will return all beers with the word lager in their name. |
+| `GET`  | `/beers`                 | [beers]                                                | Get all the beers from the DB                                |
+| `GET`  | `/beers/:id`              | { beer }                                               | Get a single/specific beer                                   |
+| `POST` | `/beers`              | { newBeer} | Create a new beer                |
+| `PUT` | `/beers/:id`              | { updatedBeer } | Update the value of a beer               |
+| `DELETE` | `/beers/:id`              | { message:"Beer successfully Deleted!"} | delete a beer               |
+| <b>BONUS:</b> `GET`  | `/beers/random`           | { beer }                                               | Get a random beer from the DB                                |
+| <b>BONUS:</b> `GET`  | `/beers/search?q={query}` | [beers]                                                | Search beers by name containing the specified term. Example: `/search?q=lager` query will return all beers with the word lager in their name. |
 
 <br>
 
@@ -110,106 +109,41 @@ The **IronBeers** app will include the following features:
 
 ## Instructions
 
-### Iteration 1 | Setup React Router and Create Routes
+### Iteration 1 | Set up the server side application  
 
-The first step is configuring React Router to allow you to create and navigate between different pages in your app:
-
-
-
-1. Set up React Router in your `src/main.jsx` file:
-
-```jsx
-// src/main.jsx
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(
-  <Router>
-    <App />
-  </Router>
-);
-```
-
-<br>
-
-2. In your `App.jsx` set up the routes that render the following pages:
-
-- Route `/`, which renders the `HomePage` component
-- Route `/beers`, which renders the `AllBeersPage` component.
-- Route `/random-beer`, which renders the `RandomBeerPage` component.
-- Route `/new-beer`, which renders the `AddBeerPage` component.
-- Route `/beers/:beerId`, which renders the `BeerDetailsPage` component.
+The first step is creating the server side Node applicagtion
 
 
+
+1. in the root of this directory run the following command: npx ironlauncher ironbeer-backend.
+2. pick the options for: JSON and no, thank you for authentication
+3. Check the package for json for the dependancies and run npm i
 
 <br>
 
 
 
-### Iteration 2 | Home Page
+### Iteration 2 | Populate the intial data for the application
 
-Implement the `HomePage` component located in the `src/pages/HomePage.jsx` so that it includes links to the following pages:
+So now we have the backend of our application created and we want to populate the initial data for the beers. import the beers.json file into the mongoDB collection. REMEMBER: the database and collection are only created when we get a call to the database so perform the following steps:
 
-- `/beers` - to the "All Beers" page
-- `/random-beer` - to the "Random Beer" page
-- `/new-beer` - to the "New Beer" page
-
-<br>
-
-Feel free to style the page in any way that you prefer. If you want to follow the below example, you can find the corresponding images in the `src/assets` folder.
-
-<br>
-
-<details>
-
-  <summary><b>See Expected Result</b></summary>
-
-
-
-<div style="display: flex; justify-content: center">
-  <img src="https://user-images.githubusercontent.com/23629340/40706572-933439b8-63ee-11e8-8d65-538fb59f79ab.png" height="600px" />
-</div>
-
-
-
-  <br>
-
-</details>
-
+1. create a database ironbeer-backend
+2. create a collection within the database called beers
+3. import the beers.json into the collection
 
 
 <br>
 
-### Iteration 3 | Navbar
+### Iteration 3 | Create the beers model
 
-In this iteration, you will work on the `Navbar` component located in `src/components/Navbar.jsx`.
+Now that we have the initial data in our database we need to create the model for a Beer. The beer should have the following Schema:
 
-The `Navbar` component should render a `nav` element with a `Link` that, when clicked, navigates to the Home Page (`/`).
-
-The `Navbar` component should be rendered on every page.
-
-<br>
-
-<details>
-
-
-  <summary><b>See Expected Result</b></summary>
-
-
-
-<div style="display: flex; justify-content: center">
-  <img src="https://user-images.githubusercontent.com/23629340/40707029-cb2fce12-63ef-11e8-939c-f673ff3b965d.png" height="100px" />
-</div>
-
-
-
-  <br>
-
-</details>
+- **name** - Type `String`. It should be *required*.
+- **tagline** - Type `String`. with a maxLength of 50 characters.
+- **attenuation_level** - Type `Number`. With a min value of 0 and max value of 100.
+- **image_url** - Type `String`. Default value: _"https://images.punkapi.com/v2/keg.png"_.
+- **contributed_by** - Type `String.
+- **is_alchaholic** - Type `Boolean`. The default value should be `true`.
 
 
 
@@ -217,55 +151,15 @@ The `Navbar` component should be rendered on every page.
 
 
 
-### Iteration 4 | List all the beers
+### Iteration 4 | Write the route for getting all beers at /beers
 
-Next, we'll work on the `AllBeersPage` component in the `src/pages/AllBeersPage.jsx`.
+In this iteration we will write the route for getting all the beers.
 
-The `AllBeersPage` that gets rendered on the route `/beers`, should display a list of all the beers from the API. 
+1. Create a beers.routes.js in your routes folder
+2. import the router from express and export at the bottom of the js file
+3. mount the route in the app.js
 
-
-
-To do this, you need to make a `GET` request to the Beers API endpoint `https://ih-beers-api2.herokuapp.com/beers`. This API endpoint returns an **array of beers**. 
-
-**Hint**: The array of beers is an *array* of *objects*. You should **`console.log`** the response data to help you visualize the structure of the beer objects and how the data is structured.
-
-
-
-The list should display the following info for each beer:
-
-- `image`
-
-- `name`
-
-- `tagline`
-
-- `contributed_by`
-- **Each beer in the list should include a `Link`** to the beer details page **`/beers/:beerId`** , where `:beerId` is the unique identifier for the beer. 
-
-
-
-<br>
-
-
-
-<details>
-
-
-  <summary><b>See Expected Result</b></summary>
-
-
-
-<div style="display: flex; justify-content: center">
-  <img src="https://user-images.githubusercontent.com/23629340/40706960-96223ade-63ef-11e8-9375-b7b6d091e716.png" height="600px" />
-</div>
-
-
-
-  <br>
-
-</details>
-
-
+Now that we have done all these steps lets write the route for getting all the beers. This route should be a GET route and when a request is sent to this route a response cotaining all the beers needs to be sent back.
 
 <br>
 
