@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Buzz",
+        "tagline": "A Real Bitter Experience.",
+        "attenuation_level": 75,
+        "image_url": "https://images.punkapi.com/v2/keg.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Trashy Blonde",
+        "tagline": "You Know You Shouldn't",
+        "attenuation_level": 76,
+        "image_url": "https://images.punkapi.com/v2/2.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Berliner Weisse With Yuzu - B-Sides",
+        "tagline": "Japanese Citrus Berliner Weisse.",
+        "attenuation_level": 83,
+        "image_url": "https://images.punkapi.com/v2/keg.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Pilsen Lager",
+        "tagline": "Unleash the Yeast Series.",
+        "attenuation_level": 80,
+        "image_url": "https://images.punkapi.com/v2/4.png",
+        "contributed_by": "Ali Skinner <AliSkinner>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Avery Brown Dredge",
+        "tagline": "Bloggers' Imperial Pilsner.",
+        "attenuation_level": 67,
+        "image_url": "https://images.punkapi.com/v2/5.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Electric India",
+        "tagline": "Vibrant Hoppy Saison.",
+        "attenuation_level": 88.9,
+        "image_url": "https://images.punkapi.com/v2/6.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "AB:12",
+        "tagline": "Imperial Black Belgian Ale.",
+        "attenuation_level": 84,
+        "image_url": "https://images.punkapi.com/v2/7.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Fake Lager",
+        "tagline": "Bohemian Pilsner.",
+        "attenuation_level": 78,
+        "image_url": "https://images.punkapi.com/v2/8.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    },
+    {
+        "name": "Bramling X",
+        "tagline": "Single Hop IPA Series - 2011.",
+        "attenuation_level": 80.9,
+        "image_url": "https://images.punkapi.com/v2/10.png",
+        "contributed_by": "Sam Mason <samjbmason>",
+        "is_alchoholic": true
+    }
+]
