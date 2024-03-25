@@ -210,79 +210,103 @@ This should finish our work on the server side for the moment. Now we have the f
 
 ### Iteration 9 | Create the react application
 
-Now that we have finished the work on the server side application lets create the react (client) application that will send requests to the server side. Perform the following command in the root of this directory to create the react application: npm create vite ironbeer-frontend
+Now that we have finished the work on the server side application lets create the react (client) application that will send requests to the server side. Perform the following command in the root of this directory:
+
+1. npm create vite ironbeer-frontend
+2. cd ironbeer-frontend
+3. npm i axios react-router-dom
+
+What we did in the commands here is:
+
+1. create a react application using vite
+2. change directories into the react application
+3. install axios and react-router-dom
 
 
 <br>
 
 
 
-### Iteration 7 | Create a new beer
+### Iteration 7 | Create the base component pages
 
-In this iteration, you will work on the `AddBeerPage` component in the `src/pages/AddBeerPage.jsx`.
+Create two folders in our src folder:
+
+1. pages
+2. components
+
+Create the following components in the pages folder:
+
+
+- A **Home** page with links to 3 different pages:
+  - _All Beers_
+  - _Random Beer_
+  - _New Beer_
+- An **All Beers** page where you should display all the beers
+- A **Single Beer** page to display the details of the beer the user clicked on
+- A **Random Beer** page to display a Random Beer
+- A **New Beer** page to show a form where a user can create new beers
 
 
 
-When the user navigates to the `/new-beer` route in your react app, the `AddBeerPage` component should be rendered, displaying a `form` where the user can create new beers. 
 
 <br>
 
+### Bonus: Iteration 10 | Create the routing for the React Application
 
-The `form` should include the following:
+1. Set up React Router in your `src/main.jsx` file:
 
-- `input`:
-  - Label: Name
-  - Attributes: `name="name"` and `type="text"`
-- `input`:
-  - Label: Tagline
-  - Attributes: `name="tagline"` and `type="text"`
-- `textarea`:
-  - Label: Description
-  - Attributes: `name="description"` and `type="text"`
-- `input`:
-  - Label: First Brewed
-  - Attributes: `name="first_brewed"` and `type="text"`
-- `input`:
-  - Label: Brewer's Tips
-  - Attributes: `name="brewers_tips"` and `type="text"`
-- `input`:
-  - Label: Attenuation Level
-  - Attributes: `name="attenuation_level"` and **`type="number"`**
-- `input`:
-  - Label: Contributed By
-  - Attributes: `name="contributed_by"` and `type="text"`
-- `button`:
-  - Text: "Add Beer"
-  - Attributes: `type="submit"`
+```jsx
+// src/main.jsx
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <Router>
+    <App />
+  </Router>
+);
+```
 
 <br>
 
-**Note:** All inputs are of type `text` except `attenuation_level`, which is of type `number`. This is important because the API will only accept the request if all values have the correct data types.
+2. In your `App.jsx` set up the routes that render the following pages:
+
+- Route `/`, which renders the `HomePage` component
+- Route `/beers`, which renders the `AllBeersPage` component.
+- Route `/random-beer`, which renders the `RandomBeerPage` component.
+- Route `/new-beer`, which renders the `AddBeerPage` component.
+- Route `/beers/:beerId`, which renders the `BeerDetailsPage` component.
+
+
+
+### Iteration 2 | Home Page
+
+Implement the `HomePage` component located in the `src/pages/HomePage.jsx` so that it includes links to the following pages:
+
+- `/beers` - to the "All Beers" page
+- `/random-beer` - to the "Random Beer" page
+- `/new-beer` - to the "New Beer" page
+
 
 <br>
 
-Once you are done creating the form, make a `POST` request to the API endpoint `https://ih-beers-api2.herokuapp.com/beers/new`, passing all the input values in the request `body` as an object. The fields of the request `body` should have exact **names** so that the API can create a new beer.
-
-If everything goes well, you will receive a **200** response from the server. :beer:
-
-The `attenuation_level` value must be set to the correct data type of `number`.  If a `string` is sent instead, the API will respond with a **500** error status code.
+Feel free to style the page in any way that you prefer. If you want to follow the below example, you can find the corresponding images in the `src/assets` folder.
 
 <br>
-
-
 
 <details>
-
 
   <summary><b>See Expected Result</b></summary>
 
 
 
 <div style="display: flex; justify-content: center">
-  <img src="https://user-images.githubusercontent.com/23629340/40707877-3c9dad42-63f2-11e8-8c95-4881bbde64a2.png" height="600px" />
+  <img src="https://user-images.githubusercontent.com/23629340/40706572-933439b8-63ee-11e8-8d65-538fb59f79ab.png" height="600px" />
 </div>
-
-
 
 
 
@@ -292,29 +316,40 @@ The `attenuation_level` value must be set to the correct data type of `number`. 
 
 
 
+<br>
+
+### Iteration 3 | Navbar
+
+In this iteration, you will work on the `Navbar` component located in `src/components/Navbar.jsx`.
+
+The `Navbar` component should render a `nav` element with a `Link` that, when clicked, navigates to the Home Page (`/`).
+
+The `Navbar` component should be rendered on every page.
+
+<br>
+
+<details>
+
+
+  <summary><b>See Expected Result</b></summary>
+
+
+
+<div style="display: flex; justify-content: center">
+  <img src="https://user-images.githubusercontent.com/23629340/40707029-cb2fce12-63ef-11e8-939c-f673ff3b965d.png" height="100px" />
+</div>
+
+
+
+  <br>
+
+</details>
+
 
 
 <br>
 
-### Bonus: Iteration 8 | Filter the beers
 
-As the final feature, we will implement a search functionality where users can filter beers based on keywords.
-
-In the `AllBeersPage` component, add an `input` where users can type in their search query. Every time the user types a new letter, you should call to `https://ih-beers-api2.herokuapp.com/beers/search?q={query}`, passing the input value as the `q` param.
-
-
-
-**We are done!** :trophy:
-
-
-
-Awesome! If you're of legal drinking age and allowed to, feel free to celebrate with a beer! :wink: You've now become a **React Warrior**. Keep practicing, and soon you'll be a React Ninja!
-
-<br>
-
-Happy coding! :heart:
-
-<br>
 
 ## FAQs
 
