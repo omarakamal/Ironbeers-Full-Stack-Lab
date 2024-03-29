@@ -543,13 +543,14 @@ The `attenuation_level` value must be set to the correct data type of `number`. 
 
 
 
-### BONUS Iteration 16 | A random beer
+### BONUS Iteration 17 | A random beer
 
 In this iteration, you will work on the `RandomBeerPage` component in the `src/pages/RandomBeerPage.jsx`.
 
 
+Create an endpoint that returns a random beer from your database on each request.
 
-When the `RandomBeerPage` component is rendered on the `/random-beer` route, it should show a random beer retrieved from the Beers API. To get the data of a random beer, you need to make a `GET` request to the endpoint `https://ih-beers-api2.herokuapp.com/beers/random`.
+When the `RandomBeerPage` component is rendered on the `/random-beer` route, it should show a random beer retrieved from the Beers API using your newly created endpoint. Your endpoint should be at '/beers/random'
 
 <br>
 
@@ -591,6 +592,13 @@ The `RandomBeerPage` component should display the following information about th
 
 
 <br>
+
+
+### BONUS Iteration 18 | Create a search for beers
+
+First create an endpoint that takes a value with the query strings and searches the database for all the beers that contains the string. 
+
+In the AllBeersPage add an input field that when changed will send a request to this new endpoint and display only the beers that are being searched for.
 
 
 
